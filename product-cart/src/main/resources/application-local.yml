@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  devtools:
+    livereload:
+      port: 35730
+  liquibase:
+    change-log: classpath:changelog.yml
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5532/bloomwise
+    username: bloomwise
+    password: bloomwise
+
+request-validation:
+  consumers:
+    - service-name: "bloomwise-front"
+      always-allowed: true
